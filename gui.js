@@ -30,25 +30,20 @@ class GUI{
 
 
     insertBev(){
-        
-        const type = prompt('inserisci il tipo di bevanda');
-        if (type === 'vino'){
-            const name = prompt('inserisci il nome');
+        const name = prompt('inserisci il nome');
         const maker = prompt('inserisci il produttore');
         const dop = prompt('inserisci la data di produzione');
         const vol = prompt('inserisci la gradazione');
+        const type = prompt('inserisci il tipo di bevanda');
+        if (type === 'vino'){
             const region = prompt('inserisci la regione');
             const vine = prompt('inserisci la vigna');
-            const bev = new Wine(name, type, maker, dop, vol, region, vine)
+            const bev = new Wine(name, type, maker, dop, vol, region, vine);
             this.cellar.addBeverage(bev);
 
         } else if (type === 'birra') {
-            const name = prompt('inserisci il nome');
-        const maker = prompt('inserisci il produttore');
-        const dop = prompt('inserisci la data di produzione');
-        const vol = prompt('inserisci la gradazione');
             const malt = prompt('inserisci il malto');
-            const bev = new Beer(name, type, maker, dop, vol, malt)
+            const bev = new Beer(name, type, maker, dop, vol, malt);
             this.cellar.addBeverage(bev);
     
         } else {
@@ -59,7 +54,7 @@ class GUI{
     deleteBev(){
         const humanIndex = prompt('Inserisci la bevanda  da eliminare')
         const index = humanIndex -1;
-        this.library.deleteBeverage(index);
+        this.cellar.deleteBeverage(index);
     }
 
     
